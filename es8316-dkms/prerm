@@ -1,0 +1,28 @@
+#!/bin/sh
+
+
+module=es8316
+version="$(ls -l /var/lib/dkms/es8336 | grep ^d | awk '{print $9}')"
+
+set -e
+
+case "$1" in
+	remove|upgrade|deconfigure)
+	if [  "dkms status -m $module" ]; then
+            dkms remove -m $module -v $version --all
+            # Attempt to remove module, fail silently if module is already unloaded
+            rmmod -s $module > /dev/null 2>&1 || true 
+            rm -R /usr/src/$module-*
+            fi
+            ;;
+
+	failed-upgrade)
+    ;;
+
+	*)
+	echo "prerm called with unknown argument \`$1'" >&2
+	exit 1
+	;;
+esac
+
+exit 0 

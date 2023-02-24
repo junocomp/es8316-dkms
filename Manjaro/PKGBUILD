@@ -1,0 +1,28 @@
+# Maintainer: Giovanni Caligaris <uk@junocomputers.com>
+pkgname=8316-dkms
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="es8316 Drivers"
+arch=(any)
+license=('GPL3')
+depends=('dkms' 'make')
+install=${pkgname}.install
+source=(dkms.conf
+	Makefile
+	prerm
+	es8316.h
+	snd-soc-es8316.c)
+sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
+package () {
+  # Create folders
+  mkdir -p $pkgdir/usr/share/$pkgname
+  mkdir -p $pkgdir/usr/share/$pkgname/src
+ 
+  # Copy folder
+  install -Dm644 Makefile dkms.conf -t $pkgdir/usr/share/$pkgname
+  install -Dm755 prerm -t $pkgdir/usr/share/$pkgname
+  
+  install -Dm644 es8316.h -t $pkgdir/usr/share/$pkgname/src
+  install -Dm644 snd-soc-es8316.c -t $pkgdir/usr/share/$pkgname/src
+
+  }
