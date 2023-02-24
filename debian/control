@@ -1,0 +1,13 @@
+Source: es8316-dkms
+Section: admin
+Priority: optional
+Build-Depends: debhelper
+Maintainer: Giovanni Caligaris <junocomputers@outlook.com>
+
+Package: es8316-dkms
+Section: base
+Priority: optional
+Depends: dkms, make, bc
+Homepage: https://www.junocomputers.com
+Architecture: all
+Description: ESSX8316 module

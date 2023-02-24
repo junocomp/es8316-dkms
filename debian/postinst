@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd /usr/share/es8316-dkms
+make clean
+make dkmsinstall
+
