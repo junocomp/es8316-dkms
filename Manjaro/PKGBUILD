@@ -1,5 +1,5 @@
 # Maintainer: Giovanni Caligaris <uk@junocomputers.com>
-pkgname=8316-dkms
+pkgname=es8316-dkms
 pkgver=0.1.0
 pkgrel=1
 pkgdesc="es8316 Drivers"
