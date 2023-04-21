@@ -27,7 +27,7 @@ post_install() {
 #}
 
 ## arg 1:  the old package version
-post_remove() {
+#post_remove() {
 	rm -R /usr/share/es8316-dkms
 #}
 
